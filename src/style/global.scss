@@ -1,0 +1,153 @@
+@use 'mixins';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* Font Vars */
+  font-size: 1rem;
+  --display: 'Obrazec', sans-serif;
+  --sans: 'Oswald', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --body: 'Atkinson Hyperlegible';
+
+  font-family: var(--body);
+
+  --user-font-scale: 1rem - 16px;
+  font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+  
+  /* Colors */
+  --dark: #111827;
+  --dark-hsl: 221, 39%, 11%;
+  --dark-hs: 221, 39%;
+  --dark-rgb: 17, 24, 39;
+
+  --light: #f9fafb;
+  --light-hsl: 210, 20%, 98%;
+  --light-hs: 210, 20%;
+  --light-rgb: 249, 250, 251;
+
+  --red: #FF5964;
+  --red-hsl: 356, 100%, 67%;
+  --red-hs: 356, 100%;
+
+  --yellow: #FFE74C;
+  --yellow-hsl: 52, 100%, 65%;
+  --yellow-hs: 52, 100%;
+
+  --darkcyan: #0F8B8D;
+  --darkcyan-hsl: 181 81% 31%;
+  --darkcyan-hs: 181, 81%;
+
+  --lightgray: #DAD2D8;
+  --lightgray-hsl: 315 10% 84%;
+  --lightgray-hs: 315, 10%;
+
+  --gray: #ac9aa8;
+  --gray-hsl: 315, 10%, 64%;
+  --gray-hs: 315, 10%;
+  
+
+  --accent-primary: var(--red);
+  --accent-primary-hsl: var(--red-hsl);
+  --accent-primary-hs: var(--red-hs);
+
+  --accent-secondary: var(--yellow);
+  --accent-secondary-hsl: var(--yellow-hsl);
+  --accent-secondary-hs: var(--yellow-hs);
+
+  --accent-tertiary: var(--darkcyan);
+  --accent-tertiary-hsl: var(--darkcyan-hsl);
+  --accent-tertiary-hs: var(--darkcyan-hs);
+
+  /* FG/BG */
+  --foreground: var(--dark);
+  --background: var(--light);
+
+
+  --font--2: clamp(0.91rem, 0.94rem + -0.13vw, 0.84rem);
+  --font--1: clamp(1.09rem, 1.08rem + 0.06vw, 1.13rem);
+  --font-0: clamp(1.31rem, 1.24rem + 0.37vw, 1.50rem);
+  --font-1: clamp(1.58rem, 1.41rem + 0.83vw, 2.00rem);
+  --font-2: clamp(1.89rem, 1.59rem + 1.51vw, 2.67rem);
+  --font-3: clamp(2.27rem, 1.77rem + 2.51vw, 3.55rem);
+  --font-4: clamp(2.72rem, 1.94rem + 3.93vw, 4.74rem);
+  --font-5: clamp(3.27rem, 2.08rem + 5.95vw, 6.31rem);
+  --font-6: clamp(3.92rem, 2.16rem + 8.77vw, 8.42rem);
+  --font-7: clamp(4.70rem, 2.16rem + 12.71vw, 11.22rem);
+
+  /* Spacing Scales */
+
+  --space-3xs: 1vw;
+  --space-2xs: 2vw;
+  --space-xs: 3vw;
+  --space-s: 4vw;
+  --space-m: 5vw;
+  --space-l: 6vw;
+  --space-xl: 7vw;
+  --space-2xl: 8vw;
+  --space-3xl: 9vw;
+
+  /*Elevations*/
+  --elevation-1: 5px 5px 10px rgb(var(--dark-rgb), 0.3);
+  --elevation-2: 10px 10px 15px rgb(var(--dark-rgb), 0.3);
+  --elevation-3: 15px 15px 20px rgb(var(--dark-rgb), 0.3);
+  --elevation-4: 20px 20px 30px rgb(var(--dark-rgb), 0.3);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans);
+}
+
+p {
+  font-family: var(--body);
+}
+
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+p {
+  font-size: var(--font-0);
+}
+
+.button, button {
+  background: var(--foreground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-3xs);
+  text-decoration: none;
+  color: var(--background);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: var(--font--1);
+  transition: 
+    200ms background ease-out,
+    200ms color ease-out 200ms;
+  box-shadow: var(--elevation-3);
+}
+
+.button:hover, button:hover {
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--dark);
+    --foreground: var(--light);
+  }
+}
+

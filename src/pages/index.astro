@@ -1,0 +1,42 @@
+---
+import '../style/global.scss';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'The Grackle — Websites Users Love';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;900&family=Rajdhani:wght@700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/style/fonts.css">
+
+    <style lang="scss">
+        @use '../style/mixins';
+
+        main {
+            
+        }
+    </style>
+</head>
+<body>
+    <Header {title} />
+    <main>
+        <Hero />
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

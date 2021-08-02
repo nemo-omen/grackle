@@ -1,0 +1,26 @@
+---
+  import Logo from './Logo.astro';
+
+  const { title } = Astro.props;
+---
+
+<header>
+  <Logo {title} />
+</header>
+
+<style lang="scss">
+@use '../style/mixins';
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2xs) var(--space-xs);
+
+  @include mixins.scheme(dark) {
+    background-color: var(--dark);
+  }
+
+  @include mixins.scheme(light) {
+    background-color: var(--light);
+  }
+}
+</style>
